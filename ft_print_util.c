@@ -2,28 +2,20 @@
 
 ft_putchar(int c)
 {
-	write(1, &c, 1);
-	return (1);
+	return (write(1, &c, 1));
 }
 ft_putstr(char *s)
 {
-	write(1, s, ft_strlen(s));
-	return (ft_strlen(s));
+	return (write(1, s, ft_strlen(s)));
 }
-ft_putnbr(int n)
+ft_putnbr(int n, int base, int uppercase)
 {
 	char	*str;
 
-	str = ft_itoa(n);
-	ft_putstr(str);
-	free(str);
-	return (ft_strlen(str));
-}
-ft_putnbr_unsigned(unsigned int n)
-{
-	char	*str;
-
-	str = ft_itoa(n);
+	if (base == 10)
+		str = ft_itoa(n);
+	else
+		str = ft_itoa_base(n, uppercase);
 	ft_putstr(str);
 	free(str);
 	return (ft_strlen(str));

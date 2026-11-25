@@ -10,11 +10,11 @@ int print_format(char format, va_list args)
 	else if (format == 's')
 		count += ft_putstr(va_arg(args, char *));
 	else if (format == 'd' || format == 'i')
-		count += ft_putnbr(va_arg(args, int));
+		count += ft_putnbr(va_arg(args, int), 10, 0);
 	else if (format == 'u')
 		count += ft_putnbr_unsigned(va_arg(args, unsigned int));
 	else if (format == 'x' || format == 'X')
-		count += ft_puthex(va_arg(args, unsigned int), format);
+		count += ft_putnbr(va_arg(args, unsigned int), 16, format);
 	else if (format == 'p')
 		count += ft_putptr(va_arg(args, void *));
 	else if (format == '%')
