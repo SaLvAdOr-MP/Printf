@@ -1,26 +1,35 @@
 #include "ft_printf.h"
 
-ft_putchar(int c)
+int	ft_putchar(int c)
 {
 	return (write(1, &c, 1));
 }
-ft_putstr(char *s)
+int	ft_putstr(char *s)
 {
 	return (write(1, s, ft_strlen(s)));
 }
-ft_putnbr(int n, int base, int uppercase)
+char	*ft_itoa_base(int n, int ul)
+{
+	n *= 1;
+	ul *= 1;
+	return NULL;
+}
+
+ int	ft_putnbr(int n, int base, int uppercase)
 {
 	char	*str;
+	int		s;
 
 	if (base == 10)
 		str = ft_itoa(n);
 	else
 		str = ft_itoa_base(n, uppercase);
 	ft_putstr(str);
+	s = ft_strlen(str);
 	free(str);
-	return (ft_strlen(str));
-}
-ft_puthex(unsigned int n, char format)
+	return (s);
+}/*
+int	ft_puthex(unsigned int n, char format)
 {
 	char	*str;
 
@@ -32,11 +41,11 @@ ft_puthex(unsigned int n, char format)
 	free(str);
 	return (ft_strlen(str));
 }
-ft_putptr(void *ptr)
+int	ft_putptr(void *ptr)
 {
 	char	*str;
 	str = ft_itoa_base((unsigned long)ptr, 'p');
 	ft_putstr(str);
 	free(str);
 	return (ft_strlen(str));
-}
+} */
